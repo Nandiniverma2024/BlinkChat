@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import { connectDB } from './lib/db.js';
 import job from './lib/cron.js';
-import clerkWebhook from './wewbhooks/clerk.webhook.js';
+import clerkWebhook from './webhooks/clerk.webhook.js';
 
 import fs from 'fs';
 import path from 'path';
