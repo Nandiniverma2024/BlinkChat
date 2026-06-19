@@ -4,6 +4,8 @@ import cors from "cors";
 import { connectDB } from './lib/db.js';
 import job from './lib/cron.js';
 import clerkWebhook from './webhooks/clerk.webhook.js';
+import authRoutes from './routes/auth.route.js';
+
 
 import fs from 'fs';
 import path from 'path';
@@ -28,6 +30,8 @@ app.use(clerkMiddleware());
 app.get("/health", (req,res)=>{
     res.status(200).json({ok:true});
 });
+
+app.use("/api.auth",authRoutes);
 
 // if public directory exists, serve the static files
 // This is for prodcution build
