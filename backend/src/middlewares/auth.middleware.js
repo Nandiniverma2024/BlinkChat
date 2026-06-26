@@ -13,7 +13,7 @@ export async function protectRoute(req,res, next) {
         }
 
         // Get user from database
-        const user=await User.findOne({clerk:userId});
+        const user=await User.findOne({clerkId:userId});
         // This user can be undefined(or not exist)
         if(!user){
             res.status(404).json({ message: "User profile is not synced yet" });
